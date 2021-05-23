@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure js 2</title>
+</head>
+
+<style>
+    #box{width: 500px;
+    height: 200px;
+    background-color: lightgray;
+    }
+
+    #input{padding: 10px;}
+</style>
+<body>
+
+    <button id="btn">click me</button>
+    <div id="box"></div>
+    <h3 id="mousePos"></h3>
+
+   <!-- this is the input -->
+   <input type="text" id="input" placeholder="enter anything"></input>
+   <div id="output"></div>
+
+
+
+<script>
+let btn=document.querySelector("#btn")
+let box=document.querySelector("#box")
+//the eventListener for the button
+btn.addEventListener("click",myEvent)
+box.addEventListener("mousemove",boxEvent)
+
+function myEvent(e){
+    console.log(e);
+   console.log(e.target);
+   console.log(e.type)
+}
+
+function boxEvent(e){
+let mouseX=e.offsetX
+let mouseY=e.offsetY
+let mousePos=document.querySelector("#mousePos")
+mousePos.textContent=`mouseX: ${mouseX}   mouseY: ${mouseY}`
+box.style.backgroundColor=`rgb(${e.offsetX},${e.offsetY},100)`
+
+}
+
+
+
+//lets manipulate the input 
+let input=document.getElementById('input')
+let output=document.getElementById('output')
+// console.log(input);
+input.addEventListener("keydown",userInput)
+
+function userInput(e){
+    // console.log(e);
+    console.log(e.target.value);
+    if(e.code==="Enter"){ 
+            let para = document.createElement("h1");
+            let  node = document.createTextNode(e.target.value);
+            para.appendChild(node);
+            output.appendChild(para)
+    // output.textContent=`${e.target.value}`  
+    }
+   
+// /
+
+}
+
+
+
+</script>    
+</body>
+</html>

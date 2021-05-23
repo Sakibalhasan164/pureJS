@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Javascript one</title>
+</head>
+
+<style>
+   .button{
+          padding: 10px 25px 10px 25px;
+          font-size: 15px;
+          border: 2px solid rgb(245, 242, 242);
+          border-radius: 5px;
+           background-color: rgb(230, 37, 127);
+           color: whitesmoke;
+   }
+   .paragraph{color: red;}
+
+   .list-div-dom{
+     background-color: rgb(190, 190, 190);
+     height: 50vh;
+   }
+
+.newDiv{
+  width: 100%;
+  height: 20vh;
+  background-color: greenyellow;
+  margin: 10px;
+}
+</style>
+<body>
+ <button id="btn">click me</button>
+ <button id="add-class">add class</button>
+
+ <div class="list-div">
+   <ul id="items">
+    <li class="one">Item one </li>
+    <li class="two">Item two</li>
+    <li class="three">Item three</li>
+    <li class="four">item four</li>
+<span></span>
+
+   </ul>
+ </div>
+  <h1>This is the last sibling</h1>
+<script>
+let button=document.getElementById("btn")
+let items=document.getElementsByTagName("li")
+let addClass=document.getElementById("add-class")
+// console.log(addClass);
+// console.log(items);
+
+
+for (let index = 0; index <items.length; index++) {
+    //  console.log(items[index]);
+     items[index].addEventListener("click",()=>{items[index].classList.toggle('paragraph')})
+}
+
+let item=document.querySelector("#items")
+   console.log(item.children);
+   for (let index = 0; index <item.children.length; index++) {
+     item.children[index].style.color="green"
+   }
+//  console.log(item.previousElementSibling); 
+
+
+
+
+
+
+// console.log(item.parentNode);
+
+addClass.addEventListener("click",stylediv)
+
+
+//callback after clicking on the add class button
+function stylediv(){
+  item.parentNode.parentNode.classList.toggle("list-div-dom")
+}
+
+
+
+
+// console.log(document.title);
+// console.log(document.all);
+// // console.log(document.all[6]);
+// // document.all[7].textContent="hi"
+// console.log(button);
+
+
+//changing the content of the buttons
+
+
+
+button.addEventListener("click",myFunction)
+
+function myFunction(){
+    
+// console.log("click on the button");
+    button.classList.toggle("button")
+    document.title="click"
+    button.innerHTML="clicked!"
+}
+
+
+
+//creathing new element in javascript
+let newDiv=document.createElement("div")
+   
+   newDiv.classList.add("newDiv")
+   let newDivText=document.createTextNode("this is the new div text")
+   newDiv.appendChild(newDivText)
+   console.log(newDiv);
+
+   let newDivContainer=document.querySelector(".list-div")
+   console.log(newDivContainer);
+   let list=document.querySelector(".three")
+   console.log(list);
+   newDivContainer.insertBefore(newDiv,item)
+
+</script>
+</body>
+</html>

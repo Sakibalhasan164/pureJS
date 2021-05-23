@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wraper{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(32, 29, 43);
+}
+
+#close{
+    position: absolute;
+    top:0px;
+    left: 0;
+    margin: 3px;
+    padding: 4px;
+    background: none;
+    background-color:black ;
+    color: white;
+    border: 1px solid rgb(32, 29, 43);
+    border-radius: 20%;
+
+}
+
+h1{color: white;
+font-size:35px;
+font-weight: bold;
+text-shadow: 2px 2px #294d58;
+
+}
+
+#input{
+    padding: 10px;
+    border: 0.5px solid rgb(70, 65, 65);
+    background-color: lightblue;
+    border-radius: 5px;
+}
+#submit{
+    padding: 10px;
+    border: 0.5px solid rgb(19, 19, 19);
+    background-color: rgb(20, 20, 20);
+    color: white;
+    border-radius: 5px;
+}
+
+
+.pop-up{
+    border-radius:10px;
+    width: 350px;
+    height: 200px;
+    background-color: rgb(233, 40, 81);
+    position: absolute;
+    top:200px;
+    left: 32%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    animation: popup 3s;
+}
+
+@keyframes popup{
+0%{transform: translateY(-500px);}
+10%{
+    transition: 1s;
+    transform:translateY(-600px) ;
+}
+20%{
+    transform: rotateZ(90deg);
+}
+
+
+
+
+
+}

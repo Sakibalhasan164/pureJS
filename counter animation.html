@@ -1,69 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>counter Animation</title>
-</head>
+  </head>
 
-<style>
-    #value{
-        font-weight: bold;
-        font-size: 25px;
-        color: rgb(255, 9, 9);
-        /* transition: 5s; */
+  <style>
+    #value {
+      font-weight: bold;
+      font-size: 25px;
+      color: rgb(255, 9, 9);
+      /* transition: 5s; */
     }
-</style>
-<body>
+  </style>
+  <body>
+    <form class="form" onsubmit="count">
+      <input type="text" class="userInput" placeholder="Enter a value" />
+      <button id="btn">Submit</button>
+    </form>
 
-<input type="text" class="userInput" placeholder="Enter a value">
-<button id="btn">Submit</button>
+    <p>Your Value:<span id="value">0</span></p>
 
+    <script>
+      let startValue = 0;
+      let targer;
+      let interVAl;
 
-<p>Your Value:<span id="value">0</span></p>
+      const userInput = document.querySelector(".userInput");
+      const btn = document.getElementById("btn");
+      const form = document.querySelector(".form");
+      //call the count function on enter
 
-<script>
+      btn.addEventListener("click", count);
 
-  let startValue=0;
-  let targer;
-  let interVAl;
+      function count(e) {
+        e.preventDefault();
+        const value = document.querySelector("#value");
+        interVAl = setInterval(counter, 30);
+        console.log(userInput.value);
+        // userInput.value=0
 
-const userInput=document.querySelector(".userInput")
-const btn=document.getElementById("btn")
+        startValue = 0;
+      }
 
-
-
-btn.addEventListener("click",count)
-
-
-function count(){
-const value=document.querySelector("#value") 
-interVAl=  setInterval(counter,30)
-console.log(userInput.value);
-// userInput.value=0
-
-startValue=0
-}
-
-
-function counter(){
-targer=userInput.value
-    // console.log(startValue);
-    if(startValue<targer){
-        startValue+=1
-        value.textContent=startValue
-    }else{
-        startValue=targer;
-    clearInterval(interVAl)
-    }
-    console.log(startValue);
-    
-}
-
-
-
-</script>
-
-
-</body>
+      function counter() {
+        targer = userInput.value;
+        // console.log(startValue);
+        if (startValue < targer) {
+          startValue += 1;
+          value.textContent = startValue;
+        } else {
+          startValue = targer;
+          clearInterval(interVAl);
+        }
+        console.log(startValue);
+      }
+    </script>
+  </body>
 </html>
